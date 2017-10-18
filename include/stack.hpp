@@ -1,4 +1,7 @@
 #include <iostream>
+#include <stdexcept>
+#include <algorithm>
+
 template <typename T>
 
 class stack
@@ -7,29 +10,29 @@ class stack
 
 public:
 
-	void swap(stack<T>&);
+	void swap(stack<T>&);//noexcept;
 
 	stack();
 
-	~stack();
+	~stack();//noexcept;
 
-	stack(const stack<T>&);
+	stack(const stack<T>&);//strong
 
-	stack<T>& operator=(const stack<T>& other);
+	stack<T>& operator=(const stack<T>& other);//noexcept;
 
-	size_t count() const;
+	size_t count() const;//noexcept;
 
-	void push(T const &);
+	void push(T const &);//strong
 
-	void pop();
+	void pop();//strong
 
-	T top();
+	T top();//strong
 
-	bool empty() const;
+	bool empty() const;//noexcept;
 
-	void printall();
+	void printall();//noexcept;
 
-	void print();
+	void print();//noexcept;
 
 private:
 
@@ -78,15 +81,8 @@ stack<T>& stack<T>::operator=(const stack<T> & other)
 {
 	if (this != &other) 
 	{
-		delete[] array_;
+		stack(other).swap(*this);
 	}
-	if (array_size_ != 0) 
-		{
-			array_size_ = other.array_size_;
-			count_ = other.count_;
-			array_=new T[count_];
-			std::copy(other.array_, other.array_ + other.count_, array_);
-		}
 	return *this;
 }
 
@@ -115,7 +111,7 @@ void stack<T>::pop()
 {
 	if (empty())
 	{
-		std::cout << "Stack is empty!";
+		throw std::logic_error( "Stack is empty!");
 	}
 	else
 		count_--;
@@ -126,7 +122,7 @@ T stack<T>::top()
 {
 	if (empty())
 	{
-		std::cout << "Stack is empty!";
+		throw std::logic_error( "Stack is empty!");
 	}
 	return array_[count_ - 1];
 }
