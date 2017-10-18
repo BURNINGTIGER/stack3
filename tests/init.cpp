@@ -23,13 +23,9 @@ SCENARIO("pop", "[pop]"){
 }
 
 SCENARIO("top", "[top]") {
-	stack<int> st;
-	int temp;
-	st.push(1);
-	st.push(2);
-	st.push(3);
-	temp = st.top();
-	REQUIRE(temp == -1 && st.count() == 2);
+	 stack<int>st;
+    	st.push(1);
+	REQUIRE(st.top() == 1);
 }
 
 SCENARIO("operator=", "[operator]") {
