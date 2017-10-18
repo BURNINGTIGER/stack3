@@ -114,7 +114,9 @@ template <typename T>
 void stack<T>::pop()
 {
 	if (empty())
+	{
 		std::cout << "Stack is empty!";
+	}
 	else
 		count_--;
 }
@@ -122,9 +124,11 @@ void stack<T>::pop()
 template <typename T>
 T stack<T>::top()
 {
-	T temp = array_[count_--];
-
-	return temp;
+	if (empty())
+	{
+		std::cout << "Stack is empty!";
+	}
+	return array_[count_--];
 }
 
 template <typename T>
