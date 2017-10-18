@@ -128,7 +128,7 @@ T stack<T>::top()
 	{
 		std::cout << "Stack is empty!";
 	}
-	return array_[count_--];
+	return array_[count_ - 1];
 }
 
 template <typename T>
