@@ -45,5 +45,5 @@ SCENARIO("operator=", "[operator]") {
 SCENARIO("empty", "[empty]") {
 	stack<int> st;
 	st.empty();
-	REQUIRE(st.empty() == true);
+	REQUIRE(st.empty() == 1);
 }
