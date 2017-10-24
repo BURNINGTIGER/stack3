@@ -12,25 +12,25 @@ public:
 
 	void swap(stack<T>&);//noexcept;
 
-	stack();
+	stack();//noexcept;
 
 	~stack();//noexcept;
 
-	stack(const stack<T>&);//strong
+	stack(const stack<T>&);//no safety;
 
-	stack<T>& operator=(const stack<T>& other);//noexcept;
+	stack<T>& operator=(const stack<T>& other);//no safety;
 
 	size_t count() const;//noexcept;
 
-	void push(T const &);//strong
+	void push(T const &);//no safety;
 
-	void pop();//strong
+	void pop();//no safety;
 
-	T top();//strong
+	T top();//strong;
 
 	bool empty() const;//noexcept;
 
-	void printall();//noexcept;
+	void printall();//no safety;
 
 	void print();//noexcept;
 
