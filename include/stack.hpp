@@ -24,7 +24,8 @@ public:
 
 	void push(T const &);//no safety;
 
-	void pop();//no safety;
+	void pop();//strong;
+	
 
 	T top();//strong;
 
