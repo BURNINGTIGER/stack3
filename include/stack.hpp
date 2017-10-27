@@ -16,22 +16,21 @@ public:
 
 	~stack();//noexcept;
 
-	stack(const stack<T>&);//no safety;
+	stack(const stack<T>&);//strong;
 
-	stack<T>& operator=(const stack<T>& other);//no safety;
+	stack<T>& operator=(stack<T> const& other);//strong;
 
 	size_t count() const;//noexcept;
 
-	void push(T const &);//no safety;
+	void push(T const &);//strong;
 
 	void pop();//strong;
 	
-
 	T top();//strong;
 
 	bool empty() const;//noexcept;
 
-	void printall();//no safety;
+	void printall() const;//strong;
 
 	void print();//noexcept;
 
@@ -78,7 +77,7 @@ stack<T>::stack(const stack<T>& other) {
 }
 
 template<typename T>
-stack<T>& stack<T>::operator=(const stack<T> & other)
+stack<T>& stack<T>::operator=(stack<T> const& other)
 {
 	if (this != &other) 
 	{
@@ -141,7 +140,7 @@ size_t stack<T>::count() const
 }
 
 template<typename T>
-void stack<T>::printall()
+void stack<T>::printall() const
 {
 	for (int i = 0; i < count_; i++)
 		std::cout << array_[i];
